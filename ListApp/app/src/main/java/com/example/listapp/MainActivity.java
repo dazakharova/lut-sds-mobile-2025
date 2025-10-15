@@ -1,6 +1,9 @@
 package com.example.listapp;
 
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    ListView myListView;
+    String[] items;
+    String[] prices;
+    String[] descriptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +28,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Resources res = getResources();
+        myListView = (ListView) findViewById(R.id.myListView);
+        items = res.getStringArray(R.array.items);
+        prices = res.getStringArray(R.array.prices);
+        descriptions = res.getStringArray(R.array.descriptions);
+
+        ItemAdapter itemAdapter = new ItemAdapter(this, items, prices, descriptions);
+        myListView.setAdapter(itemAdapter);
     }
 }
