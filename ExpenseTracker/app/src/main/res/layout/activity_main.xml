@@ -29,12 +29,29 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
+        android:id="@+id/totalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Expense Tracker!"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-        app:layout_constraintStart_toStartOf="parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/total_format"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <ListView
+        android:id="@+id/expensesList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalText"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
