@@ -1,6 +1,8 @@
 package com.example.expensetracker;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.service.controls.actions.FloatAction;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -9,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,5 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
         ExpenseAdapter adapter = new ExpenseAdapter(this, data);
         expensesList.setAdapter(adapter);
+
+        FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.addButton);
+        addBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AddExpenseActivity.class);
+            startActivity(intent);
+        });
     }
 }
