@@ -4,4 +4,10 @@
     <string name="hint_expense_name">Expense name</string>
     <string name="hint_expense_amount">Amount</string>
     <string name="add_expense_title">Add Expense</string>
+
+    <string name="error_name_required">Please enter a name</string>
+    <string name="error_amount_required">Please enter an amount</string>
+    <string name="error_amount_invalid">Amount must be a number</string>
+    <string name="error_amount_positive">Amount must be greater than 0</string>
+
 </resources>
