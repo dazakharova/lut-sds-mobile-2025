@@ -10,6 +10,9 @@
     <string name="error_amount_invalid">Amount must be a number</string>
     <string name="error_amount_positive">Amount must be greater than 0</string>
 
+    <string name="category_label">Category</string>
+    <string name="save_button">Save</string>
+
     <string-array name="expense_categories">
         <item>Other</item>
         <item>Food</item>
