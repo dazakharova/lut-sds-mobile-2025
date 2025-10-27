@@ -22,4 +22,6 @@
         <item>Entertainment</item>
     </string-array>
 
+    <string name="btn_show_summary">Show Summary</string>
+
 </resources>
