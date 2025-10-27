@@ -54,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        findViewById(R.id.showSummaryButton).setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SummaryActivity.class));
+        });
+
         totalText = (TextView) findViewById(R.id.totalText);
         expensesList = (ListView) findViewById(R.id.expensesList);
 
