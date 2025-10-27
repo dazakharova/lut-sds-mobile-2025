@@ -2,8 +2,10 @@ package com.example.expensetracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +37,12 @@ public class AddExpenseActivity extends AppCompatActivity {
         nameInput = findViewById(R.id.nameInput);
         amountInput = findViewById(R.id.amountInput);
         Button saveButton = (Button) findViewById(R.id.saveButton);
+
+        Spinner categorySpinner = findViewById(R.id.categorySpinner);
+        ArrayAdapter<CharSequence> catAdapter = ArrayAdapter.createFromResource(
+                this, R.array.expense_categories, android.R.layout.simple_spinner_item);
+        catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(catAdapter);
 
         saveButton.setOnClickListener(v -> {
             String name = nameInput.getText().toString().trim();
@@ -71,9 +79,15 @@ public class AddExpenseActivity extends AppCompatActivity {
 
             if (!ok) return;
 
+            String selectedCategory = (String) categorySpinner.getSelectedItem();
+            if (selectedCategory == null || selectedCategory.trim().isEmpty()) {
+                selectedCategory = "Other";
+            }
+
             Intent data = new Intent();
             data.putExtra("extra_name", name);
             data.putExtra("extra_amount", amount);
+            data.putExtra("extra_category", selectedCategory);
             setResult(RESULT_OK, data);
 
             finish();

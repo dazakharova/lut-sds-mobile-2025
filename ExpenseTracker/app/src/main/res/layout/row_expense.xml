@@ -14,4 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/expenseCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/expenseName"
+        android:layout_alignStart="@id/expenseName"
+        android:textSize="12sp"
+        android:textColor="#666" />
 </RelativeLayout>

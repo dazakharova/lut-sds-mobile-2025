@@ -40,10 +40,12 @@ public class ExpenseAdapter extends BaseAdapter {
 
         TextView expenseNameTextView = v.findViewById(R.id.expenseName);
         TextView expenseAmountTextView = v.findViewById(R.id.expenseAmount);
+        TextView categoryTextView = v.findViewById(R.id.expenseCategory);
 
         Expense expense = data.get(i);
         expenseNameTextView.setText(expense.name);
         expenseAmountTextView.setText(String.format("€%.2f", expense.amount));
+        categoryTextView.setText(expense.category);
 
         return v;
     }

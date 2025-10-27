@@ -10,4 +10,13 @@
     <string name="error_amount_invalid">Amount must be a number</string>
     <string name="error_amount_positive">Amount must be greater than 0</string>
 
+    <string-array name="expense_categories">
+        <item>Other</item>
+        <item>Food</item>
+        <item>Transport</item>
+        <item>Shopping</item>
+        <item>Bills</item>
+        <item>Entertainment</item>
+    </string-array>
+
 </resources>

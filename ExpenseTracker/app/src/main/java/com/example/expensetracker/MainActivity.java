@@ -35,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
                     Intent dataIntent = result.getData();
                     String name = dataIntent.getStringExtra("extra_name");
                     float amount = dataIntent.getFloatExtra("extra_amount", 0f);
+                    String category = dataIntent.getStringExtra("extra_category");
                     if (name != null && amount > 0f) {
-                        data.add(new Expense(name, amount));
+                        data.add(new Expense(name, amount, category));
                         adapter.notifyDataSetChanged();
                         updateTotal();
                     }
@@ -57,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
         totalText = (TextView) findViewById(R.id.totalText);
         expensesList = (ListView) findViewById(R.id.expensesList);
 
-        data.add(new Expense("Coffee", 2.5f));
-        data.add(new Expense("Groceries", 15.75f));
-        data.add(new Expense("Bus ticket", 3.0f));
+        data.add(new Expense("Coffee", 2.5f, "Food"));
+        data.add(new Expense("Groceries", 15.75f, "Food"));
+        data.add(new Expense("Bus ticket", 3.0f, "Transport"));
 
         adapter = new ExpenseAdapter(this, data);
         expensesList.setAdapter(adapter);
