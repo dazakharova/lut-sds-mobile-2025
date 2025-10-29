@@ -8,15 +8,18 @@
         android:id="@+id/expenseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/expenseAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toStartOf="@id/btnDelete"
+        android:layout_centerVertical="true"
         android:layout_marginEnd="8dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/expenseCategory"
@@ -29,9 +32,10 @@
 
     <ImageButton
         android:id="@+id/btnDelete"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/delete_expense"
         android:src="@drawable/ic_delete_24"
