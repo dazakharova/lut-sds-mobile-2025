@@ -10,12 +10,17 @@ import android.widget.TextView;
 import java.util.List;
 
 public class ExpenseAdapter extends BaseAdapter {
+
+    public interface OnExpenseDeleteListener {
+        void onDelete(int position, Expense expense);
+    }
     LayoutInflater mInflater;
-
     List<Expense> data;
+    private final OnExpenseDeleteListener deleteListener;
 
-    public ExpenseAdapter(Context c, List<Expense> data) {
+    public ExpenseAdapter(Context c, List<Expense> data, OnExpenseDeleteListener deleteListener) {
         this.data = data;
+        this.deleteListener = deleteListener;
         mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -41,11 +46,18 @@ public class ExpenseAdapter extends BaseAdapter {
         TextView expenseNameTextView = v.findViewById(R.id.expenseName);
         TextView expenseAmountTextView = v.findViewById(R.id.expenseAmount);
         TextView categoryTextView = v.findViewById(R.id.expenseCategory);
+        View deleteBtn = v.findViewById(R.id.btnDelete);
 
         Expense expense = data.get(i);
         expenseNameTextView.setText(expense.name);
         expenseAmountTextView.setText(String.format("€%.2f", expense.amount));
         categoryTextView.setText(expense.category);
+
+        deleteBtn.setOnClickListener(v1 -> {
+            if (deleteListener != null) {
+                deleteListener.onDelete(i, expense);
+            }
+        });
 
         return v;
     }

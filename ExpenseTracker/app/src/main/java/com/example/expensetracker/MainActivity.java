@@ -65,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
         data.add(new Expense("Groceries", 15.75f, "Food"));
         data.add(new Expense("Bus ticket", 3.0f, "Transport"));
 
-        adapter = new ExpenseAdapter(this, data);
+        adapter = new ExpenseAdapter(this, data, (position, expense) -> {
+            data.remove(position);
+            adapter.notifyDataSetChanged();
+            updateTotal();
+        });
         expensesList.setAdapter(adapter);
         updateTotal();
 
