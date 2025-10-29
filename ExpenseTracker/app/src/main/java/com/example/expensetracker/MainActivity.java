@@ -69,6 +69,31 @@ public class MainActivity extends AppCompatActivity {
         expensesList.setAdapter(adapter);
         updateTotal();
 
+        findViewById(R.id.showSummaryButton).setOnClickListener(v -> {
+            // Build totals per category
+            java.util.Map<String, Float> totals = new java.util.HashMap<>();
+            float grand = 0f;
+            for (Expense e : data) {
+                String cat = (e.category == null || e.category.isEmpty()) ? "Other" : e.category;
+                float amt = Math.max(0f, e.amount);
+                grand += amt;
+                totals.put(cat, totals.getOrDefault(cat, 0f) + amt);
+            }
+
+            java.util.ArrayList<String> cats = new java.util.ArrayList<>();
+            java.util.ArrayList<Float> vals = new java.util.ArrayList<>();
+            for (java.util.Map.Entry<String, Float> en : totals.entrySet()) {
+                cats.add(en.getKey());
+                vals.add(en.getValue());
+            }
+
+            android.content.Intent intent = new android.content.Intent(this, SummaryActivity.class);
+            intent.putStringArrayListExtra("extra_cats", cats);
+            intent.putExtra("extra_vals", vals); // ArrayList<Float> goes as Serializable
+            intent.putExtra("extra_grand", grand);
+            startActivity(intent);
+        });
+
         FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.addButton);
         addBtn.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddExpenseActivity.class);
