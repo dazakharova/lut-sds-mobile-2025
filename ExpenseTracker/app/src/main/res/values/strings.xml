@@ -23,7 +23,8 @@
     </string-array>
 
     <string name="btn_show_summary">Show Summary</string>
+    <string name="summary_total_fmt">Total: €%.2f</string>
     <string name="summary_title">Summary</string>
-    <string name="summary_placeholder">Summary coming soon…</string>
+    <string name="summary_total_placeholder">Total: €0.00</string>
 
 </resources>
