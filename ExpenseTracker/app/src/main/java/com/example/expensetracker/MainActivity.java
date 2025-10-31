@@ -63,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
         totalText = (TextView) findViewById(R.id.totalText);
         expensesList = (ListView) findViewById(R.id.expensesList);
 
-        data.add(new Expense("Coffee", 2.5f, "Food"));
-        data.add(new Expense("Groceries", 15.75f, "Food"));
-        data.add(new Expense("Bus ticket", 3.0f, "Transport"));
-
         adapter = new ExpenseAdapter(this, data, (position, expense) -> {
             data.remove(position);
             updateEmptyState();
