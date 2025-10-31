@@ -4,17 +4,19 @@ This repository contains all coursework and the final project for the **Software
 
 ## Repository Structure
 
-/Coursework -> Learning Diary and related documentation
-/TestApp -> Tutorial Part 1 - Introduction (basic calculator app)
-/QuickLauncher -> Tutorial Part 2 - Core elements and Intents
-/ListApp -> Tutorial Part 3 - Lists, Layouts, and Images
-/ExpenseTracker -> Final project: Expense Tracker App
+- /Coursework -> Learning Diary and related documentation
+- /TestApp -> Tutorial Part 1 - Introduction (basic calculator app)
+- /QuickLauncher -> Tutorial Part 2 - Core elements and Intents
+- /ListApp -> Tutorial Part 3 - Lists, Layouts, and Images
+- /ExpenseTracker -> Final project: Expense Tracker App
 
 # Expense Tracker App
 
 A simple Android app developed as part of the **Software Development Skills (Mobile)** module at LUT University.
 
 The app helps users track their daily expenses and view spending summaries by category.
+
+Video link to the app demo: https://youtube.com/shorts/GiQW_IhtPho?feature=share
 
 ## Features
 
