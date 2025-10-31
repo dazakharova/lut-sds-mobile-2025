@@ -23,6 +23,7 @@
             android:background="?attr/colorPrimary"
             app:title="@string/summary_title"
             app:titleTextColor="?attr/colorOnPrimary"
+            android:textStyle="bold"
             app:navigationIcon="@drawable/ic_arrow_back_24"
             app:navigationIconTint="?attr/colorOnPrimary" />
     </com.google.android.material.appbar.AppBarLayout>
