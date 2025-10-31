@@ -60,6 +60,18 @@
             android:layout_marginStart="24dp"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/emptyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_expenses_text"
+        android:textColor="#797979"
+        android:textSize="14sp"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/totalRow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ListView
         android:id="@+id/expensesList"

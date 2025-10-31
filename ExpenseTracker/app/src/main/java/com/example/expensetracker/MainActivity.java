@@ -2,6 +2,7 @@ package com.example.expensetracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     if (name != null && amount > 0f) {
                         data.add(new Expense(name, amount, category));
                         adapter.notifyDataSetChanged();
+                        updateEmptyState();
                         updateTotal();
                     }
                 }
@@ -67,10 +69,12 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new ExpenseAdapter(this, data, (position, expense) -> {
             data.remove(position);
+            updateEmptyState();
             adapter.notifyDataSetChanged();
             updateTotal();
         });
         expensesList.setAdapter(adapter);
+        updateEmptyState();
         updateTotal();
 
         findViewById(R.id.showSummaryButton).setOnClickListener(v -> {
@@ -109,5 +113,13 @@ public class MainActivity extends AppCompatActivity {
         float total = 0f;
         for (Expense e : data) total += e.amount;
         totalText.setText(String.format(Locale.getDefault(), "Total: €%.2f", total));
+    }
+
+    private void updateEmptyState() {
+        TextView empty = findViewById(R.id.emptyText);
+        ListView list = findViewById(R.id.expensesList);
+        boolean isEmpty = data.isEmpty();
+        empty.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
+        list.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
     }
 }
