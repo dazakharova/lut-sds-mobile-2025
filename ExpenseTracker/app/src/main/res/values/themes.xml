@@ -3,6 +3,7 @@
     <style name="Base.Theme.ExpenseTracker" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">#2196F3</item>
         <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:windowBackground">#F7F9FC</item>
     </style>
 
     <style name="Theme.ExpenseTracker" parent="Base.Theme.ExpenseTracker" />
